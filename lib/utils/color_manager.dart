@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ColorManager {
-  static Color kLightBlueColor1 = const Color(0xff2F579A);
+  static Color kPrimary= const Color(0xff1E5BD7);
   static Color kWhiteColor = Colors.white;
   static Color kBlackColor = Colors.black;
   static Color kRedColor = Colors.red;
+  static Color kGreenColor = Colors.green;
   static Color kGreyColor = const Color(0xffB5B5C3);
+  static Color kOrangeColor = const Color(0xffFD6C6C);
+  static Color kYellowColor = const Color(0xffFFC107);
+  static Color kgreenColor = const Color(0xff28BF5B);
 }
 
 extension HexColor on Color {

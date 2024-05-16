@@ -5,7 +5,7 @@ class ImageAssets {
 
   ImageAssets._();
 
-  static const String appLogo = "$ICON_PATH/appLogo.svg";
-  static const String appLogoImage = "$IMAGE_PATH/Deluxe Hospital Logo.PNG";
+  static const String shareIcon = "$ICON_PATH/shareIcon.svg";
+  static const String appLogoImage = "$IMAGE_PATH/Logo.png";
   static const String demoUserImage = "$IMAGE_PATH/user.png";
 }
