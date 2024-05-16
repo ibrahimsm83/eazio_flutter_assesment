@@ -83,6 +83,8 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       body: Column(
         children: [
+     welcomeWidget(),
+
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Container(
@@ -100,6 +102,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               child: Column(
                 children: [
+             
                   titleButtons(),
                   toggleButtons(),
                   const Divider(
@@ -118,6 +121,38 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
+
+Widget welcomeWidget(){
+  return Container(
+    // color: Colors.lightBlue,
+    decoration: BoxDecoration(
+      color: Colors.lightBlue,
+    borderRadius: BorderRadius.circular(10.0)
+    ),
+    child: Column(children: [
+      ListTile(
+        title: Text("Welcome Back, Jhon!",style: TextStyle(color:Colors.white,),),
+        subtitle: Text("Take a look of your Weekely propesal",style: TextStyle(color:Colors.white,),),
+        trailing: Container(
+          height: 30,
+          width: 30,
+          child: Icon(Icons.share),
+        ),
+        
+      ),
+       const Divider(
+                    thickness: 0.3,
+                  ),
+                  Text(
+            "Average Late & Overtime",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 14.sp),
+          ),
+    ]),
+  ); 
+}
 
   Widget titleButtons() {
     return Padding(
