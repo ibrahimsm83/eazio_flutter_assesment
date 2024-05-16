@@ -7,5 +7,8 @@ class ImageAssets {
 
   static const String shareIcon = "$ICON_PATH/shareIcon.svg";
   static const String appLogoImage = "$IMAGE_PATH/Logo.png";
-  static const String demoUserImage = "$IMAGE_PATH/user.png";
+  static const String bellIcon = "$ICON_PATH/bell.svg";
+  static const String menuIcon = "$ICON_PATH/menu.svg";
+  static const String commentsIcon = "$ICON_PATH/comments.svg";
+  static const String bgPatternIcon = "$IMAGE_PATH/BG-Pattern.png";
 }

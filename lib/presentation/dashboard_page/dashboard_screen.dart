@@ -1,6 +1,5 @@
 import 'package:eazio/model/sample_data_model.dart';
 import 'package:eazio/utils/assets_manager.dart';
-import 'package:eazio/utils/color_manager.dart';
 import 'package:eazio/utils/export_utils.dart';
 import 'package:eazio/widgets/welcome_widget.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,6 @@ class _DashboardPageState extends State<DashboardPage> {
         y: 220,
         yValue: 320,
         secondSeriesYValue: 200,
-        //  thirdSeriesYValue: 720
       ),
       ChartSampleData(
         x: 'Tue',
@@ -83,12 +81,30 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text("EiZo"),
+        // backgroundColor: Colors.blue,
+        leadingWidth: 140,
+        elevation: 0.3,
+        leading: Image.asset(ImageAssets.appLogoImage),
+        actions: [
+          SvgPicture.asset(ImageAssets.commentsIcon),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: SvgPicture.asset(ImageAssets.bellIcon),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: SvgPicture.asset(ImageAssets.menuIcon),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            header(),
+            const Divider(
+              thickness: 0.3,
+            ),
             const WelcomeWidgets(),
             Padding(
               padding: const EdgeInsets.all(15.0),
@@ -121,23 +137,67 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
           ],
         ),
       ),
     );
   }
 
+  Widget header(){
+    return  Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        Text("Organization Insights.",
+            style: getsemiboldStyle(
+                color: ColorManager.kBlackColor, fontSize: 18.sp)),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6.0),
+          child: Text("Track Your Organization Stats Insights",
+              style: getRegularStyle(
+                  color: ColorManager.kBlackColor, fontSize: 12.sp)),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(color: ColorManager.kGreyColor),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.add,
+                    size: 16,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("manage Widgets"),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+          // SizedBox(height: 10.0),
+      ],),
+    );
+  }
+
   Widget titleButtons() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            "Attendance Summary",
-            style: getsemiboldStyle(color: ColorManager.kBlackColor,fontSize: 15.sp)
-          ),
+          Text("Attendance Summary",
+              style: getsemiboldStyle(
+                  color: ColorManager.kBlackColor, fontSize: 15.sp)),
           const Icon(
             Icons.more_vert,
             color: Colors.grey,
@@ -188,7 +248,7 @@ class _DashboardPageState extends State<DashboardPage> {
         inactiveFgColor: Colors.black,
         borderColor: [Colors.grey],
         borderWidth: 0.4,
-        minWidth: MediaQuery.of(context).size.width*0.9,
+        minWidth: MediaQuery.of(context).size.width * 0.9,
         totalSwitches: 3,
         fontSize: 15.sp,
         customTextStyles: const [TextStyle(fontWeight: FontWeight.bold)],
@@ -243,7 +303,7 @@ class _DashboardPageState extends State<DashboardPage> {
       StackedColumnSeries<ChartSampleData, String>(
           width: 0.3,
           legendIconType: LegendIconType.circle,
-          color:  ColorManager.kYellowColor,
+          color: ColorManager.kYellowColor,
           dataSource: chartData,
           xValueMapper: (ChartSampleData sales, _) => sales.x as String,
           yValueMapper: (ChartSampleData sales, _) => sales.yValue,

@@ -13,6 +13,10 @@ class WelcomeWidgets extends StatelessWidget {
       padding: const EdgeInsets.all(15.0),
       child: Container(
         decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: AssetImage(ImageAssets.bgPatternIcon),
+              fit: BoxFit.cover,
+            ),
             color: ColorManager.kPrimary,
             borderRadius: BorderRadius.circular(20.0)),
         child: Column(
